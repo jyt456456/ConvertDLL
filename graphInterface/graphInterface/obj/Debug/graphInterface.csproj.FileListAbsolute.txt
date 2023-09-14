@@ -1,0 +1,6 @@
+C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\graphInterface\graphInterface\bin\Debug\graphInterface.dll
+C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\graphInterface\graphInterface\bin\Debug\graphInterface.pdb
+C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\graphInterface\graphInterface\obj\Debug\graphInterface.csproj.AssemblyReference.cache
+C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\graphInterface\graphInterface\obj\Debug\graphInterface.csproj.CoreCompileInputs.cache
+C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\graphInterface\graphInterface\obj\Debug\graphInterface.dll
+C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\graphInterface\graphInterface\obj\Debug\graphInterface.pdb

@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
+    <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Cntgraph">
+      <HintPath>..\..\..\DLL\Cntgraph.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameSel">
+      <HintPath>..\..\..\DLL\FrameSel.dll</HintPath>
+    </Reference>
+    <Reference Include="graphDLL">
+      <HintPath>..\..\..\DLL\graphDLL.dll</HintPath>
+    </Reference>
+    <Reference Include="graphglobal">
+      <HintPath>..\..\..\DLL\graphglobal.dll</HintPath>
+    </Reference>
+    <Reference Include="graphInterface">
+      <HintPath>..\..\..\DLL\graphInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="MVbase">
+      <HintPath>..\..\..\DLL\MVbase.dll</HintPath>
+    </Reference>
+    <Reference Include="UCSearch">
+      <HintPath>..\..\..\DLL\UCSearch.dll</HintPath>
+    </Reference>
+    <Reference Include="UCtypecheck">
+      <HintPath>..\..\..\DLL\UCtypecheck.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy &quot;$(TargetDir)mainview.dll&quot; &quot;C:\Users\taeya\OneDrive\바탕 화면\file\project\DLL&quot;" />
+  </Target>
+
+</Project>

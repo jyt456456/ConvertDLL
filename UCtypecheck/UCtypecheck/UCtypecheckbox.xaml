@@ -1,0 +1,53 @@
+<UserControl x:Class="UCtypecheck.UCtypecheckbox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UCtypecheck"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Margin="{Binding Margin}">
+    
+    <Grid>
+        <CheckBox x:Name="check_one" Content="OneErr" Margin="29,10,642,0" FontSize="20" Height="40" Width="129" VerticalAlignment="Top" VerticalContentAlignment="Center"
+                 IsChecked="{Binding m_listcheckbox[0].Check, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" IsEnabled="{Binding m_listcheckbox[0].Enable}" Command="{Binding EditCommand}" CommandParameter="{Binding m_liststr[0]}">
+
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox x:Name="check_two" Content="TwoErr" HorizontalAlignment="Left" Margin="182,10,0,0" VerticalAlignment="Top" FontSize="20" Height="40" Width="128" VerticalContentAlignment="Center"
+                  IsChecked="{Binding m_listcheckbox[1].Check, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" IsEnabled="{Binding m_listcheckbox[1].Enable}" Command="{Binding EditCommand}" CommandParameter="{Binding m_liststr[1]}">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+
+        <CheckBox x:Name="check_Five" Content="FiveErr" HorizontalAlignment="Left" Margin="182,75,0,0" VerticalAlignment="Top" FontSize="20" Height="40" Width="129" VerticalContentAlignment="Center" 
+                  IsChecked="{Binding m_listcheckbox[4].Check,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" IsEnabled="{Binding m_listcheckbox[4].Enable}"  Command="{Binding EditCommand}" CommandParameter="{Binding m_liststr[4]}">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+
+        <CheckBox x:Name="check_four" Content="FourErr" HorizontalAlignment="Left" Margin="29,75,0,0" VerticalAlignment="Top" FontSize="20" Height="40" Width="129" VerticalContentAlignment="Center" 
+                  IsChecked="{Binding m_listcheckbox[3].Check,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" IsEnabled="{Binding m_listcheckbox[3].Enable}"  Command="{Binding EditCommand}" CommandParameter="{Binding m_liststr[3]}">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox x:Name="check_six" Content="SixErr" HorizontalAlignment="Left" Margin="316,75,0,0" VerticalAlignment="Top" FontSize="20" Height="40" Width="129" VerticalContentAlignment="Center"
+                  IsChecked="{Binding m_listcheckbox[5].Check,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" IsEnabled="{Binding m_listcheckbox[5].Enable}"  Command="{Binding EditCommand}" CommandParameter="{Binding m_liststr[5]}">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+
+        <CheckBox x:Name="check_Thre" Content="ThreErr" HorizontalAlignment="Left" Margin="316,10,0,0" VerticalAlignment="Top" FontSize="20" Height="40" Width="129" VerticalContentAlignment="Center"
+                  IsChecked="{Binding m_listcheckbox[2].Check, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" IsEnabled="{Binding m_listcheckbox[2].Enable}"   Command="{Binding EditCommand}" CommandParameter="{Binding m_liststr[2]}">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,6 @@
+C:\Users\taeya\OneDrive\바탕 화면\file\project\MVbase\MVbase\bin\Release\MVbase.dll
+C:\Users\taeya\OneDrive\바탕 화면\file\project\MVbase\MVbase\bin\Release\MVbase.pdb
+C:\Users\taeya\OneDrive\바탕 화면\file\project\MVbase\MVbase\obj\Release\MVbase.csproj.AssemblyReference.cache
+C:\Users\taeya\OneDrive\바탕 화면\file\project\MVbase\MVbase\obj\Release\MVbase.csproj.CoreCompileInputs.cache
+C:\Users\taeya\OneDrive\바탕 화면\file\project\MVbase\MVbase\obj\Release\MVbase.dll
+C:\Users\taeya\OneDrive\바탕 화면\file\project\MVbase\MVbase\obj\Release\MVbase.pdb

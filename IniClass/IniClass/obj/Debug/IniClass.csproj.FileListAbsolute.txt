@@ -1,0 +1,6 @@
+C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\IniClass\IniClass\bin\Debug\IniClass.dll
+C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\IniClass\IniClass\bin\Debug\IniClass.pdb
+C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\IniClass\IniClass\obj\Debug\IniClass.csproj.AssemblyReference.cache
+C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\IniClass\IniClass\obj\Debug\IniClass.csproj.CoreCompileInputs.cache
+C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\IniClass\IniClass\obj\Debug\IniClass.dll
+C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\IniClass\IniClass\obj\Debug\IniClass.pdb

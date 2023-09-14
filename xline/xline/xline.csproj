@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="graphglobal">
+      <HintPath>..\..\..\DLL\graphglobal.dll</HintPath>
+    </Reference>
+    <Reference Include="MVbase">
+      <HintPath>..\..\..\DLL\MVbase.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy &quot;$(TargetDir)xline.dll&quot; &quot;C:\Users\taeya\OneDrive\바탕 화면\file\project\DLL&quot;" />
+  </Target>
+
+</Project>

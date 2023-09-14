@@ -1,0 +1,19 @@
+<UserControl x:Class="xline.Xline"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:xline"
+             mc:Ignorable="d" Height="15" Width="15">
+
+
+    <d:UserControl.DataContext>
+        <local:XlineMV/>
+    </d:UserControl.DataContext>
+
+
+    <Grid>
+        <Line Stroke="{Binding Stroke}" X1="{Binding X1}" X2="{Binding X2}" Y1="{Binding Y1}" Y2="{Binding Y2}" StrokeThickness ="{Binding Thickness}"/>
+        <Line Stroke="{Binding Stroke}" X1="{Binding X3}" X2="{Binding X4}" Y1="{Binding Y3}" Y2="{Binding Y4}" StrokeThickness="{Binding Thickness}"/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,6 @@
+C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\wavepeak\wavepeak\bin\Debug\wavepeak.dll
+C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\wavepeak\wavepeak\bin\Debug\wavepeak.pdb
+C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\wavepeak\wavepeak\obj\Debug\wavepeak.csproj.AssemblyReference.cache
+C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\wavepeak\wavepeak\obj\Debug\wavepeak.csproj.CoreCompileInputs.cache
+C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\wavepeak\wavepeak\obj\Debug\wavepeak.dll
+C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\wavepeak\wavepeak\obj\Debug\wavepeak.pdb

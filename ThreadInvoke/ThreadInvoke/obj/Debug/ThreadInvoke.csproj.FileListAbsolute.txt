@@ -1,0 +1,2 @@
+C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\ThreadInvoke\ThreadInvoke\obj\Debug\ThreadInvoke.csproj.AssemblyReference.cache
+C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\ThreadInvoke\ThreadInvoke\obj\Debug\ThreadInvoke.csproj.CoreCompileInputs.cache

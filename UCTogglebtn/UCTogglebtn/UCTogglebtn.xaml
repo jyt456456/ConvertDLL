@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="UCTogglebtn.UCTogglebtn"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UCTogglebtn"
+             mc:Ignorable="d" 
+             xmlns:toggle="clr-namespace:ToggleSwitch;assembly=ToggleSwitch"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             d:DesignHeight="250" d:DesignWidth="200" Margin="{Binding Margin}">
+
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style/ToggleSwitchStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <d:UserControl.DataContext>
+        <local:TogglebtnVM/>
+    </d:UserControl.DataContext>
+
+    <Grid>
+        
+        <Label Content="실시간" FontSize="25" Margin="34,38,34,111"/>
+        <toggle:HorizontalToggleSwitch Style="{DynamicResource iOS5ToggleSwitchStyle}" IsChecked="{Binding m_blist[0], UpdateSourceTrigger=PropertyChanged, Mode=Twoway}" IsEnabled="{Binding m_blist[1], UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Checked">
+                    <i:InvokeCommandAction Command="{Binding EditCommand}"></i:InvokeCommandAction>
+                </i:EventTrigger>
+                <i:EventTrigger EventName="Unchecked">
+                    <i:InvokeCommandAction Command="{Binding EditCommand}"></i:InvokeCommandAction>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
+        </toggle:HorizontalToggleSwitch>
+    </Grid>
+</UserControl>
