@@ -45,4 +45,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetDir)MVbase.dll" "C:\Users\taeya\OneDrive\바탕 화면\file\project\DLL"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

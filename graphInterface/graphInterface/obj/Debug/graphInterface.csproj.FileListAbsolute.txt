@@ -4,3 +4,9 @@ C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\graphInterface\gra
 C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\graphInterface\graphInterface\obj\Debug\graphInterface.csproj.CoreCompileInputs.cache
 C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\graphInterface\graphInterface\obj\Debug\graphInterface.dll
 C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\graphInterface\graphInterface\obj\Debug\graphInterface.pdb
+C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\graphInterface\graphInterface\bin\Debug\graphglobal.dll
+C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\graphInterface\graphInterface\bin\Debug\Command.dll
+C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\graphInterface\graphInterface\bin\Debug\xline.dll
+C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\graphInterface\graphInterface\bin\Debug\MVbase.dll
+C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\graphInterface\graphInterface\bin\Debug\graphglobal.pdb
+C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\graphInterface\graphInterface\obj\Debug\graphInterface.csproj.CopyComplete

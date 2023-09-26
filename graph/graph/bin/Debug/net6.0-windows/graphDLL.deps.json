@@ -14,6 +14,7 @@
           "graphglobal": "1.0.0.0",
           "graphInterface": "1.0.0.0",
           "MVbase": "1.0.0.0",
+          "Overrayview": "1.0.0.0",
           "postdb": "1.0.0.0",
           "xline": "1.0.0.0"
         },
@@ -1425,6 +1426,14 @@
           }
         }
       },
+      "Overrayview/1.0.0.0": {
+        "runtime": {
+          "Overrayview.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "postdb/1.0.0.0": {
         "runtime": {
           "postdb.dll": {
@@ -2264,6 +2273,11 @@
       "sha512": ""
     },
     "MVbase/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Overrayview/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

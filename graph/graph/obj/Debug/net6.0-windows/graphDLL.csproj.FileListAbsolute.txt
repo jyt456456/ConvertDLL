@@ -23,3 +23,5 @@ C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\graph\graph\obj\De
 C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\graph\graph\obj\Debug\net6.0-windows\refint\graphDLL.dll
 C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\graph\graph\obj\Debug\net6.0-windows\graphDLL.pdb
 C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\graph\graph\obj\Debug\net6.0-windows\ref\graphDLL.dll
+C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\graph\graph\bin\Debug\net6.0-windows\Overrayview.dll
+C:\Users\taeya\OneDrive\바탕 화면\file\project\ConvertDLL\graph\graph\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs

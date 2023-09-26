@@ -11,11 +11,11 @@ using static graphglobal.global;
 
 namespace xline
 {
-    public class XlineMV : MVbase.MVbse
+    public class XlineMV : MVbase.MVBase
     {
         private Brush m_stroke;
         private double m_thickness;
-        //Line1
+        //Line1               
         private double x1;
         private double x2;
         private double y1;
@@ -27,8 +27,11 @@ namespace xline
         private double x4;
         private double y4;
 
+        private double lineScaleX = 1;
+        private double lineScaleY = 1;
 
-        
+
+
         public XlineMV(byte _r, byte _g, byte _b)
         {
             m_thickness = 1;
@@ -56,6 +59,19 @@ namespace xline
             Y4 = 15;
         }
 
+        public void SetScaleMiny(double _pos)
+        {
+            y2 = _pos;
+            y4 = _pos;
+
+        }
+
+        public void SetScaleMinx(double _pos)
+        {
+            x2 = _pos;
+            x3 = _pos;
+        }
+
         public void SetColor(byte _r, byte _g, byte _b)
         {
             m_stroke = new SolidColorBrush(Color.FromRgb(_r, _g, _b));
@@ -72,5 +88,7 @@ namespace xline
         public double Y3 { get => y3; set => y3 = value; }
         public double X4 { get => x4; set => x4 = value; }
         public double Y4 { get => y4; set => y4 = value; }
+        public double LineScaleX { get => lineScaleX; set => lineScaleX = value; }
+        public double LineScaleY { get => lineScaleY; set => lineScaleY = value; }
     }
 }

@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace Cntgraph
 {
-    internal class CountgraphMV : MVbase.MVbse
+    internal class CountgraphMV : MVbase.MVBase
     {
 
         private List<int> m_combolist;

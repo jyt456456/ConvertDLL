@@ -40,6 +40,8 @@ namespace Command
 
             }
 
+        
+
             //실행
             public void Execute(object parameter)
             {

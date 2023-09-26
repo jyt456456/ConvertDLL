@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IgraphToOverlay.cs" />
     <Compile Include="IChecktoGraph.cs" />
     <Compile Include="ICountgraph.cs" />
     <Compile Include="IFrame.cs" />
@@ -49,6 +50,13 @@
     <Compile Include="ITypeCheckbox.cs" />
     <Compile Include="IUcSearch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IYSynchro.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\graphglobal\graphglobal\graphglobal.csproj">
+      <Project>{079e6ba1-ab5a-4616-b195-e55122ba8f08}</Project>
+      <Name>graphglobal</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -11,7 +11,7 @@ using System.Windows;
 
 namespace UCSearch
 {
-    internal class UCSearchViewM : MVbase.MVbse
+    internal class UCSearchViewM : MVbase.MVBase
     {
 
         private string m_strLot;

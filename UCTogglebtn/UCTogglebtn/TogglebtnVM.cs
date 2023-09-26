@@ -12,7 +12,7 @@ using System.Windows.Input;
 
 namespace UCTogglebtn
 {
-    internal class TogglebtnVM : MVbase.MVbse
+    internal class TogglebtnVM : MVbase.MVBase
     {
 
         private bool m_bRealtime;

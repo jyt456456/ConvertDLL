@@ -26,25 +26,6 @@ namespace graphglobal
             public uint Defect_xindex { get => defect_xindex; set => defect_xindex = value; }
         }
 
-
-        public struct rgb
-        {
-            private byte r;
-            private byte g;
-            private byte b;
-
-            public rgb(byte _r, byte _g, byte _b)
-            {
-                r = _r;
-                g = _g;
-                b = _b;
-            }
-
-            public byte R { get => r; set => r = value; }
-            public byte G { get => g; set => g = value; }
-            public byte B { get => b; set => b = value; }
-        }
-
         public struct Checkbool
         {
             public string defect_type;
@@ -205,25 +186,42 @@ namespace graphglobal
         private uint index;
         private Thickness m_lineposs;
         private Command.intCommand editcommand;
-        public double LineWidth = 100;
-        public double LineHeight = 100;
+        private double lineWidth = 100;
+        private double lineHeight = 100;
         private xline.XlineMV xmv;
         private Brush Stroke;
         private double thickness;
 
-        private global.rgb linergb;
         private bool btnEnable;
 
-        public string Defect_type { get => Defect_type1; set => Defect_type1 = value; }
+        public string Defect_type { get => defect_type; set => defect_type = value; }
         public Brush Stroke1 { get => Stroke; set => Stroke = value; }
         public double Thickness { get => thickness; set => thickness = value; }
-        public string Defect_type1 { get => defect_type; set => defect_type = value; }
         public uint Index { get => index; set => index = value; }
         public Thickness Lineposs { get => m_lineposs; set => m_lineposs = value; }
         public Command.intCommand Editcommand { get => editcommand; set => editcommand = value; }
-        public global.rgb Linergb { get => linergb; set => linergb = value; }
         public bool BtnEnable { get => btnEnable; set => btnEnable = value; }
         public XlineMV Xmv { get => xmv; set => xmv = value; }
+        public double LineWidth { get => lineWidth; set => lineWidth = value; }
+        public double LineHeight { get => lineHeight; set => lineHeight = value; }
+
+        public Lineobj GetCopy()
+        {
+            Lineobj temp = new Lineobj();
+
+            temp.defect_type = Defect_type;
+            temp.editcommand = Editcommand;
+            temp.Lineposs = Lineposs;
+            temp.index = Index;
+            temp.xmv = new XlineMV();
+            temp.xmv = Xmv;
+            temp.btnEnable = BtnEnable;
+            temp.lineWidth = LineWidth;
+            temp.LineHeight = LineHeight;
+
+            return temp;
+
+        }
     }
 
 

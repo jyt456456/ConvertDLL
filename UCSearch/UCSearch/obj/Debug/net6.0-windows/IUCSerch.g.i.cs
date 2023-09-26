@@ -61,7 +61,7 @@ namespace UCSearch {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/UCSearch;component/iucserch.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/UCSearch;V1.0.0.0;component/iucserch.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\IUCSerch.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

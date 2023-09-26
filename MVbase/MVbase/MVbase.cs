@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MVbase
 {
-    public class MVbse : INotifyPropertyChanged
+    public class MVBase : INotifyPropertyChanged
     {
 
      

@@ -24,6 +24,9 @@
     <Reference Include="MVbase">
       <HintPath>..\..\..\DLL\MVbase.dll</HintPath>
     </Reference>
+    <Reference Include="Overrayview">
+      <HintPath>..\..\..\DLL\Overrayview.dll</HintPath>
+    </Reference>
     <Reference Include="postdb">
       <HintPath>..\..\..\DLL\postdb.dll</HintPath>
     </Reference>

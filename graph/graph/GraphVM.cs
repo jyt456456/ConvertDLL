@@ -1,9 +1,11 @@
 ﻿using Accessibility;
 using Command;
 using graphglobal;
+using Overrayview;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Data;
 using System.DirectoryServices.ActiveDirectory;
 using System.Linq;
@@ -15,13 +17,14 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 using static graphglobal.global;
 
 namespace graphDLL
 {
-    public class GraphVM : MVbase.MVbse
+    public class GraphVM : MVbase.MVBase , Command.IEventArgsConverter
     {
         
         public ObservableCollection<LineVM> m_canvasitems { get; set; }
@@ -29,7 +32,7 @@ namespace graphDLL
 
         public ObservableCollection<Lineobj> m_objitems { get; set; }
 
-        
+       
 
         public string Str { get => m_str; set => m_str = value; }
         public int Curframe { get => m_curframe; set => m_curframe = value; }
@@ -38,10 +41,11 @@ namespace graphDLL
         public int Addbit { get => m_Addbit; set => m_Addbit = value; }
         public int Check { get => m_check; set => m_check = value; }
 
+
         public xline.Xline m_xline { get; set; }
-
-
-        
+        public List<Lineobj> Overlaylist { get => m_Overlaylist; set => m_Overlaylist = value; }
+        public bool Yscroll { get => m_yscroll; set => m_yscroll = value; }
+        public bool RealStop { get => m_RealStop; set => m_RealStop = value; }
 
         private Thickness m_margin;
         private string m_str;
@@ -53,7 +57,9 @@ namespace graphDLL
         private int m_precnt;
         private int m_check; // cur Check정보 
         private bool m_RealStop = false;
-        
+        private List<graphglobal.Lineobj> m_Overlaylist;
+        private bool m_yscroll;
+
 
         public GraphVM()
         {
@@ -65,10 +71,12 @@ namespace graphDLL
             m_canvasitems = new ObservableCollection<LineVM>();
             textoneItems = new ObservableCollection<TextboxVM>();
             m_objitems = new ObservableCollection<Lineobj>();
-
+            m_Overlaylist = new List<Lineobj>();
             LineVM xline = new LineVM();
             LineVM yline = new LineVM();
-            
+            //m_overView = new OverView();
+           // m_overlayitems = new ObservableCollection<OverView> { m_overView };
+
             xline = CreateLine(0, 0, 440, 0, Brushes.Black, 1, "zero");
             yline = CreateLine(0, 0, 0, 440, Brushes.Black, 1, "zero");
 
@@ -102,10 +110,6 @@ namespace graphDLL
 
             }
 
-           // ButtonCommand = new Command.Command(BtnSearch);
-
-
-            //m_xline = new xline.Xline(255, 255, 255);
         }
 
 
@@ -127,22 +131,66 @@ namespace graphDLL
             return li;
         }
 
-        private Lineobj Createobj(double x1, double y1, double x2, double y2, Brush brush, double thickness, string _type, byte _r = 0, byte _g = 0, byte _b = 0)
+        private Lineobj Createobj(double x1, double y1, double x2, double y2, double thickness, string _type)
         {
             Lineobj obj = new Lineobj();
 
-
+            //Today Click -> Data output
 
 
             obj.Lineposs = new Thickness(x1, y1, x2, y2);
+            obj.Defect_type = _type;
 
-            global.rgb _gb = new rgb();
-            _gb.R = _r;
-            _gb.G = _g;
-            _gb.B = _b;
-            obj.Linergb = _gb;
+            //if()
+            DefetType dt = (DefetType)Enum.Parse(typeof(DefetType), _type);
+            byte r = 0;
+            byte g = 0;
+            byte b = 0;
+            switch (dt)
+            {
+                case DefetType.one:
+                    //Red
+                    r = 255;
+                    g = 0;
+                    b = 0;
+                    break;
+                case DefetType.two:
+                    //black
+                    break;
+                case DefetType.three:
+                    //yellow
+                    r = 255;
+                    g = 247;
+                    b = 0;
+                    break;
+                case DefetType.four:
+                    //orange
+                    r = 255;
+                    g = 145;
+                    b = 0;
+                    break;
+                case DefetType.five:
+                    //blue
+                    r = 0;
+                    g = 0;
+                    b = 255;
+                    break;
+                case DefetType.six:
+                    //sky
+                    r = 0;
+                    g = 162;
+                    b = 255;
+                    break;
+                case DefetType.END:
+                    break;
+                default:
+                    break;
+            }
 
-            obj.Xmv = new xline.XlineMV(_r,_g,_b);
+            //obj.Linergb = _gb;
+
+            obj.Xmv = new xline.XlineMV(r,g,b);
+            
             //obj.Editcommand = new intCommand()
 
             return obj;
@@ -179,6 +227,7 @@ namespace graphDLL
                 }
             }
 
+            OnPropertyChanged("ClearOverlay");
             if (inters.Count == 0)
             {
                 MessageBox.Show("자료X");
@@ -189,19 +238,20 @@ namespace graphDLL
 
             
             List<string> type = new List<string>();
-
+            m_Overlaylist = new List<Lineobj>();
             for (int i = 0; i < inters.Count; ++i)
             {
                 double axex = (inters[i].X * 10.0f) + 10;
                 double axey = (inters[i].Y * 10.0f) + 10;
                 Lineobj dline = new Lineobj();
-                dline = Createobj(axex - 5, axey - 5, axex + 5, axey + 5, Brushes.Black, 1, inters[i].Defect_type);
+                dline = Createobj(axex - 5, axey - 5, axex + 5, axey + 5, 1, inters[i].Defect_type);
                 m_objitems.Add(dline);
-                //dline = CreateLine(axex + 5, axey - 5, axex - 5, axey + 5, Brushes.Black, 1, inters[i].Defect_type);
-                //m_objitems.Add(dline);
+                m_Overlaylist.Add(dline);
+                OnPropertyChanged("AddData");
                 dline.Index = inters[i].Defect_xindex;
                 intCommand icmd = new intCommand(linelcommand);
                 dline.Editcommand = icmd;
+                dline.LineHeight = 500;
                 type.Add(inters[i].Defect_type);
                 int bit = 1;
                 bit = global.GetTypeToBit(inters[i].Defect_type);
@@ -241,7 +291,7 @@ namespace graphDLL
             //     바뀌는    01011
             
             
-            m_RealStop = false;
+            RealStop = false;
 
             int re = m_check ^ _bit;
             m_check -= re;
@@ -292,17 +342,20 @@ namespace graphDLL
                 postdb.DB pdb = new postdb.DB();
 
                 inters = pdb.CheckDefectType(Str, Curframe, type);
-
+                m_Overlaylist = new List<Lineobj>();
                 for (int i = 0; i < inters.Count; i++)
                 {
 
                     double axex = (inters[i].X * 10.0f) + 10;
                     double axey = (inters[i].Y * 10.0f) + 10;
                     Lineobj dline = new Lineobj();
-                    dline = Createobj(axex - 5, axey - 5, axex + 5, axey + 5, Brushes.Black, 1, inters[i].Defect_type);
+                    dline = Createobj(axex - 5, axey - 5, axex + 5, axey + 5, 1, inters[i].Defect_type);
+                    
                     m_objitems.Add(dline);
-                  //  dline = CreateLine(axex + 5, axey - 5, axex - 5, axey + 5, Brushes.Black, 1, inters[i].Defect_type);
-                  //  m_canvasitems.Add(dline);
+                    m_Overlaylist.Add(dline);
+                    OnPropertyChanged("AddData");
+                    //  dline = CreateLine(axex + 5, axey - 5, axex - 5, axey + 5, Brushes.Black, 1, inters[i].Defect_type);
+                    //  m_canvasitems.Add(dline);
                 }
 
             }
@@ -324,7 +377,7 @@ namespace graphDLL
             }
 
             //->실시간 ON
-            m_RealStop = true;
+            RealStop = true;
         }
 
         public void SetMargin(int Max, int _iCur)
@@ -411,7 +464,7 @@ namespace graphDLL
             if(m_threaltime == null)
             {
                 m_bRealTime = true;
-                m_RealStop = true;
+                RealStop = true;
                 m_threaltime = new Thread(RealTimeCheck);
                 m_threaltime.Start();
 
@@ -433,14 +486,16 @@ namespace graphDLL
             double axey = 10000000;
             Lineobj dline = new Lineobj();
             Lineobj xline = new Lineobj();
-            dline = Createobj(axex - 5, axey - 5, axex + 5, axey + 5, Brushes.Black, 1, "one");
+            dline = Createobj(axex - 5, axey - 5, axex + 5, axey + 5, 1, "one");
 
-            xline = Createobj(axex + 5, axey - 5, axex - 5, axey + 5, Brushes.Black, 1, "one");
+            xline = Createobj(axex + 5, axey - 5, axex - 5, axey + 5, 1, "one");
 
             DispatcherService.Invoke((System.Action)(() =>
             {
                 m_objitems.Add(dline);
                 m_objitems.Add(xline);
+                m_Overlaylist.Add(dline);
+                OnPropertyChanged("AddData");
 
                 // your logic
             }));
@@ -529,6 +584,11 @@ namespace graphDLL
         }
 
 
+        public void resetOverlay()
+        {
+            m_Overlaylist.Clear();
+        }
+
         public void linelcommand(uint _index)
         {
             uint temp = _index;
@@ -545,11 +605,22 @@ namespace graphDLL
                 m_bRealTime = false;
                 m_threaltime.Join();
                 m_threaltime = null;
-                m_RealStop = false;
+                RealStop = false;
                 //-> 함수화
             }
 
         }
+
+        //ScrollChangedEventArgs
+        public object Convert(object value, object parameter)
+        {
+            var args = (ScrollChangedEventArgs)value;
+            
+
+            return args;
+        }
+
+
 
 
     }

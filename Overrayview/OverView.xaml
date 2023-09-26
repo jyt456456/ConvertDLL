@@ -1,0 +1,97 @@
+<UserControl x:Class="Overrayview.OverView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Overrayview"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:Cmd ="clr-namespace:Command;assembly=Command"
+             xmlns:MouseEvent ="clr-namespace:Overrayview.EventArgsConverters"
+             xmlns:uc="clr-namespace:xline;assembly=xline"
+             xmlns:global="clr-namespace:graphglobal;assembly=graphglobal"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="400">
+    <UserControl.DataContext>
+        <local:OverViewVM />
+    </UserControl.DataContext>
+    
+    <Grid Width="{Binding ContentWidth}"
+          Height="{Binding ContentHeight}"
+          Background="Aqua">
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="MouseLeftButtonDown">
+                <Cmd:EventToCommand Command="{Binding MouseDownCommand}"
+                                    CommandParameter="{Binding ElementName=content}"
+                                    PassEventArgsToCommand="True"
+                                    EventArgsConverter="{MouseEvent:MouseDownEventArgConverter}"></Cmd:EventToCommand>
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
+        <StackPanel x:Name="content">
+            <Canvas>
+                <Thumb x:Name="overviewZoomRectThumb"
+                       Canvas.Left="{Binding ContentOffsetX, Mode=TwoWay}"
+                       Canvas.Top="{Binding ContentOffsetY, Mode=TwoWay}"
+                       Width="{Binding ContentViewportWidth}"
+                       Height="{Binding ContentViewportHeight}"
+                       Opacity="0.5">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="DragDelta">
+                            <Cmd:EventToCommand Command="{Binding MouseDragCommand}"
+                                                PassEventArgsToCommand="True"
+                                                EventArgsConverter="{MouseEvent:MouseDragDeltaEventArgConverter}"></Cmd:EventToCommand>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <Thumb.Template>
+                        <ControlTemplate TargetType="{x:Type Thumb}">
+                            <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    Background="Yellow"
+                                    CornerRadius="1" />
+                        </ControlTemplate>
+                    </Thumb.Template>
+                </Thumb>
+            </Canvas>
+            <ItemsControl x:Name="xobj"
+                          Margin="-5,-10,0,0"
+                          ItemsSource="{Binding Objitems}"
+                          Width="600"
+                          Height="460">
+                <ItemsControl.LayoutTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="{Binding ScaleX}"
+                                        ScaleY="{Binding ScaleY}"></ScaleTransform>
+                    </TransformGroup>
+                </ItemsControl.LayoutTransform>
+                <ItemsControl.ItemsPanel>
+                    
+                    <ItemsPanelTemplate>
+                        <Canvas></Canvas>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="{x:Type global:Lineobj}">
+                        <Button Margin="{Binding Lineposs}"                                
+                                Background="Transparent"
+                                BorderBrush="Transparent"
+                                Command="{Binding Editcommand}"
+                                CommandParameter="{Binding Index}"
+                                IsHitTestVisible="{Binding BtnEnable}">
+                            <uc:Xline x:Name="xln"
+                                      DataContext="{Binding Xmv}">
+                                <uc:Xline.LayoutTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleX="{Binding LineScaleX}"
+                                                        ScaleY="{Binding LineScaleY}"></ScaleTransform>
+                                    </TransformGroup>                                    
+                                </uc:Xline.LayoutTransform>                                
+                            </uc:Xline>
+                        </Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                
+            </ItemsControl>
+            
+        </StackPanel>
+    </Grid>
+</UserControl>

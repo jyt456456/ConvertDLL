@@ -25,6 +25,7 @@ namespace graphDLL
         private GraphVM m_graphvm;
 
         public IGraphtoCheck m_interactor { set; private get; }
+        public IgraphToOverlay m_overlayinter { set; private get; } 
         //internal GraphVM Vm { get => m_vm; set => m_vm = value; }
 
         public UCGraph()
@@ -78,10 +79,18 @@ namespace graphDLL
                 case "AddType":
                     m_interactor.AddType(m_graphvm.Addbit);
                     break;
+                case "AddData":
+                    m_overlayinter.AddListobj(m_graphvm.Overlaylist);
+                    m_graphvm.resetOverlay();
+                    break;
+                case "ClearOverlay":
+                    m_overlayinter.ResetListobj();
+                    break;
+                case "Ywheel":
+                    //ScrollChangedEventArgs
+                    break;
             }
         }
-
-
 
     }
 }

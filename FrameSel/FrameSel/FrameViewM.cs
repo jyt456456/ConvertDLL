@@ -14,7 +14,7 @@ using System.Windows.Media.Converters;
 
 namespace FrameSel
 {
-    internal class FrameViewM : MVbase.MVbse
+    internal class FrameViewM : MVbase.MVBase
     {
 
 

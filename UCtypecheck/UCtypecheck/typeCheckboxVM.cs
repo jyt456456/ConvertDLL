@@ -15,7 +15,7 @@ using static graphglobal.global;
 
 namespace graphmodule.typeCheckbox
 {
-    class typeCheckboxVM : MVbase.MVbse
+    class typeCheckboxVM : MVbase.MVBase
     {
 
         

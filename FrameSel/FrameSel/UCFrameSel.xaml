@@ -12,7 +12,8 @@
         <ComboBox ItemsSource="{Binding m_frameList}"  Width="120" Height="55" HorizontalContentAlignment="Center" FontSize="30">
             <b:Interaction.Triggers>
                 <b:EventTrigger EventName="SelectionChanged">
-                    <b:InvokeCommandAction Command="{Binding SelectChagne}" PassEventArgsToCommand ="True"/>
+                    <b:InvokeCommandAction Command="{Binding SelectChagne}"
+                                           PassEventArgsToCommand="True" />
                 </b:EventTrigger>
             </b:Interaction.Triggers>
         </ComboBox>

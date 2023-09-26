@@ -23,8 +23,6 @@ namespace xline
     {
 
         private XlineMV m_mv;
-        private global.rgb m_rgb;
-
         /*
 
         public static readonly DependencyProperty rgbValueProperty = DependencyProperty.Register(
